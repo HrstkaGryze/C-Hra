@@ -16,8 +16,8 @@ int monstraHP;
 int monstrautok;
 int xpDrop;
 int goldDrop;
-
-
+// test zmena pro PR
+//------------Main---------------------
 int main() {
 
 cout << "Vítej v Textovém RPG " << endl;
