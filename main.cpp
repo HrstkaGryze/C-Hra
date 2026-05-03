@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//------------Hrac--------------
+//------------Hrac---------------
 
 struct Hrac{
 
