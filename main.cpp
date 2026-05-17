@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//------------Hrac----------------
+//------------Hrac--------------
 
 struct Hrac{
 
@@ -19,7 +19,25 @@ struct Hrac{
     int Utok;
     int Gold;
     string Class;
-};
+}
+
+
+
+void LevelUp(Hrac &p) {
+    while (p.XP >= 10 * p.Level) {
+        p.XP -= 10 * p.Level;
+        p.Level++;
+        p.MaxHP += 2;
+        p.Utok += 1;
+        p.HP = p.MaxHP;
+        cout << "\n*** LEVEL UP! ***\n";
+        cout << "Nový level: " << p.Level << "\n";
+        cout << "Max HP zvýšeno a útok zvýšen.\n";
+    }
+}
+
+
+
 
 //-----------Postavy------------
 
@@ -27,16 +45,16 @@ Hrac VyberPostavy(){
 
     while (true) {
         cout << "Vyber si postavu" << endl;
-        cout << "1) Rytíř" << endl;
+        cout << "1) Rytir" << endl;
         cout << "2) Lovec" << endl;
-        cout << "3) Mág" << endl;
-        int C;
-        cin >> C;
+        cout << "3) Mag" << endl;
+        int c;
+        cin >> c;
 
         Hrac p;
 
         if(c==1){
-            p.Class = "Rytíř";
+            p.Class = "Rytir";
             p.MaxHP =
             p.MaxMana = 0;
             p.Gold = 10;
@@ -53,8 +71,8 @@ Hrac VyberPostavy(){
             p.XP = 0;
             p.Utok =
 
-        }else (c==3){
-            p.Class = "Mág";
+        }else if (c==3){
+            p.Class = "Mag";
             p.MaxHP =
             p.MaxMana = 30;
             p.Gold = 10;
@@ -84,17 +102,10 @@ struct Monstra{
 //------------Main--------------
 int main() {
 
-    cout << "Vítej v RPG " << endl;
-
-    cout << "Class: " << Hrac.Class << endl;
-    cout << "Level: " << Hrac.level << "  XP: " << Hrac.xp << endl;
-    cout << "HP: " << Hrac.hp << "/" << Hrac.maxHP
-    cout << "Mana: " << Hrac.mana << "/" << Hrac.maxMana << endl;
-    cout << "Utok: " << Hrac.attack << "  Gold: " << Hrac.gold << endl;
+    Hrac Hrac = VyberPostavy();
 
 
 
 
-    cout <<"Diky";
     return 0;
 }
