@@ -101,7 +101,7 @@ Blinkron vytvorBlinkron() {
     b.bonusDalsiUtok = 1.0f;
     return b;
 }
-// -------------------- POMOCNE FUNKCE --------------------
+// -------------------- FUNKCE --------------------
 bool monstrumZije(const Monstrum &m) {
     return m.hp > 0;
 }
@@ -180,7 +180,7 @@ void vesnice(Hrac &h) {
         }
     }
 }
-// -------------------- SOUBOJ: GENERICKY MULTI-MONSTRUM --------------------
+// -------------------- SOUBOJ MULTI-MONSTRUM --------------------
 bool souboj(Hrac &h, vector<Monstrum> nepratele, bool nepratelePrvni) {
     cout << "\n=== SOUBOJ ZACINA ===\n";
 
@@ -293,7 +293,7 @@ bool souboj(Hrac &h, vector<Monstrum> nepratele, bool nepratelePrvni) {
             }
         }
 
-        // utoci nepratele po hraci?
+
         if (!nepratelePrvni) {
             for (auto &e : nepratele) {
                 if (!monstrumZije(e)) continue;
@@ -309,7 +309,7 @@ bool souboj(Hrac &h, vector<Monstrum> nepratele, bool nepratelePrvni) {
 
     return false;
 }
-// -------------------- SOUBOJ: BLINKRON (HLAVNI BOSS) --------------------
+// -------------------- SOUBOJ: BLINKRON --------------------
 bool soubojBlinkron(Hrac &h, Blinkron &b) {
     cout << "\n=== SOUBOJ S HLAVNIM BOSSEM: BLINKRON ===\n";
 
@@ -320,7 +320,7 @@ bool soubojBlinkron(Hrac &h, Blinkron &b) {
 
         bool teleportKolo = (b.kolo % 3 == 0);
 
-        // utok Blinkrona
+        // utok Blinkrot
         if (teleportKolo) {
             cout << "Blinkron mizi v zablesku svetla!\n";
             int dmg = b.zaklad.utok * 2;
@@ -390,7 +390,7 @@ bool soubojBlinkron(Hrac &h, Blinkron &b) {
             }
         }
 
-        // Blinkron muze byt neviditelny
+        // neviditelny
         if (b.neviditelny) {
             cout << "Blinkron se vyhnul utoku! Nabiji si dalsi utok.\n";
             b.bonusDalsiUtok = 1.5f;
@@ -409,7 +409,7 @@ bool soubojBlinkron(Hrac &h, Blinkron &b) {
     cout << "Prohral jsi.\n";
     return false;
 }
-// -------------------- VYBER TRIDY HRACE --------------------
+// -------------------- VYBER HRACE --------------------
 Hrac vyberTridu() {
     while (true) {
         cout << "Vyber si tridu:\n";
@@ -485,7 +485,7 @@ Hrac vyberTridu() {
         if (ok == 1) return h;
     }
 }
-// -------------------- MAIN HRY --------------------
+// -------------------- MAIN --------------------
 int main() {
     srand((unsigned)time(nullptr));
     cout << "Textove RPG - Blinkron\n\n";
@@ -503,8 +503,6 @@ int main() {
 
     Blinkron blinkron = vytvorBlinkron();
 
-    // postup hry podle zadani
-    // |V| > |M| > |M| > |2xM| > |MB| > |V| > |M| > |2xM| > |2xM| > |MB| > |V| > |2xM| > |2xM| > |3xM| > |V| > |HB|
 
     // 1: V
     vesnice(hrac);
