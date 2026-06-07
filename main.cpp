@@ -576,7 +576,7 @@ int main() {
         if (!souboj(hrac, e, false)) return 0;
     }
 
-    // 14: 3xM
+    // 14:3xM
     {
         vector<Monstrum> e = {goblin, vlk, ork};
         if (!souboj(hrac, e, false)) return 0;
