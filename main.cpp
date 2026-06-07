@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// -------------------- UTIL --------------------
+// -------------------- UTIL -------------------
 int nahodneCislo(int a, int b) {
     return a + rand() % (b - a + 1);
 }
